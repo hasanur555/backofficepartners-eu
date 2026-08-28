@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "External travel operations department for tour operators, DMCs and boutique hotels. Managed OTA listings, Bókun/FareHarbor, channel manager audits and human-first guest support. Per-service pricing, invoice billing.",
+          "External travel operations department for tour operators, DMCs and boutique hotels. Managed OTA listings, Bókun, channel manager audits and human-first guest support. Per-service pricing, invoice billing.",
       },
       { property: "og:title", content: "Travel BackOffice Partners — OTA, PMS & Channel Operations" },
       { property: "og:description", content: "We become your external travel operations department. Human-first back-office team for OTAs, PMS and channel managers." },
@@ -49,8 +49,8 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CONTACT_EMAIL = "partnerships@travelbackoffice.com";
-const CAREERS_EMAIL = "hasanur.ed@tourgeeky.com";
+const CONTACT_EMAIL = "contact@backofficepartners.eu";
+const CAREERS_EMAIL = CONTACT_EMAIL;
 
 /* ---------------- Data ---------------- */
 
@@ -87,7 +87,7 @@ const SERVICES: Service[] = [
     id: "pms",
     icon: Building2,
     title: "Property Management Software",
-    tag: "Bókun · FareHarbor · Cloudbeds · Hostaway · Guesty · Lodgify",
+    tag: "Bókun · Cloudbeds · Hostaway · Guesty · Lodgify",
     summary:
       "Full operation of your PMS — from setup to daily reservations, rate plans, guest flows and integrations that keep your calendar in sync everywhere.",
     bullets: [
@@ -207,7 +207,7 @@ const MODULES = [
 ];
 const STANDALONE = [
   { id: "seo", label: "Listing SEO optimization", price: 350, unit: "per listing" },
-  { id: "bokun", label: "Bókun / FareHarbor full setup", price: 650, unit: "flat setup" },
+  { id: "bokun", label: "Bókun full setup", price: 650, unit: "flat setup" },
   { id: "fast", label: "OTA fast approval setup", price: 250, unit: "per product upload" },
   { id: "rescue", label: "Previous listing audit & rescue", price: 450, unit: "flat" },
 ];
@@ -234,11 +234,11 @@ Replacing bots with human operations managers who monitor inbound queues continu
   {
     id: "art2",
     title: "Preventing double-bookings with capacity locks",
-    excerpt: "How to configure Bókun / FareHarbor resource pools so overbookings become mathematically impossible.",
+    excerpt: "How to configure Bókun resource pools so overbookings become mathematically impossible.",
     body: `Overbookings drain account health on distribution networks. Eliminating them requires an engineering approach to reservation setup.
 
 1. Resource Dependency Mapping
-Inside Bókun or FareHarbor, physical assets are absolute boundary conditions. Every product departure links to a shared resource pool with exact seat limits, guide roster shifts, and B2B ticket allotments.
+Inside Bókun, physical assets are absolute boundary conditions. Every product departure links to a shared resource pool with exact seat limits, guide roster shifts, and B2B ticket allotments.
 
 2. Live API Inventory Closures
 When a booking lands via GetYourGuide, the API instantly notifies the reservation engine, which reduces slots in the master pool and fires close-out commands across Viator, Tiqets and website widgets simultaneously.
@@ -343,7 +343,7 @@ function Hero() {
             department.
           </h1>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Managing reservations, live OTA distribution channels, detailed customer communications, and central Bókun / FareHarbor systems while your team focuses on scaling experiences. Fully integrated into your existing infrastructure with zero high-cost software fees.
+            Managing reservations, live OTA distribution channels, detailed customer communications, and central Bókun systems while your team focuses on scaling experiences. Fully integrated into your existing infrastructure with zero high-cost software fees.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="#configurator" className="btn-teal rounded-md px-5 py-3 text-sm font-semibold inline-flex items-center gap-2">
