@@ -23,6 +23,9 @@ import {
   Calculator,
   TrendingUp,
   AlertTriangle,
+  Download,
+  Code2,
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -31,6 +34,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
+import { notifySubmission } from "@/lib/notify";
+import logoBestInRome from "@/assets/partners/Best_in_Rome_tour_transparent.png";
+import logoAvenza from "@/assets/partners/avenzatour_png_6.png";
+import logoEpicRoma from "@/assets/partners/Epic_ROma.jpg";
+import logoPremium from "@/assets/partners/Primium.jpg";
+import logoSrCity from "@/assets/partners/S_R_CITY.jpg";
+import logoHelloItalia from "@/assets/partners/web-logo-horizontal.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -40,7 +50,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "External travel operations department for tour operators, DMCs and boutique hotels. Managed OTA listings, Bókun/FareHarbor, channel manager audits and human-first guest support. Per-service pricing, invoice billing.",
+          "External travel operations department for tour operators, DMCs and boutique hotels. Managed OTA listings, Bókun, channel manager audits and human-first guest support. Per-service pricing, invoice billing.",
       },
       { property: "og:title", content: "Travel BackOffice Partners — OTA, PMS & Channel Operations" },
       { property: "og:description", content: "We become your external travel operations department. Human-first back-office team for OTAs, PMS and channel managers." },
@@ -49,8 +59,30 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const CONTACT_EMAIL = "partnerships@travelbackoffice.com";
-const CAREERS_EMAIL = "hasanur.ed@tourgeeky.com";
+const CONTACT_EMAIL = "contact@backofficepartners.eu";
+const CAREERS_EMAIL = CONTACT_EMAIL;
+const SERVICE_PDF = "/travel-backoffice-partners-services.pdf";
+
+const TECH_PARTNERS = [
+  { name: "Best in Rome Tour", logo: logoBestInRome },
+  { name: "Avenza Tour", logo: logoAvenza },
+];
+
+const SUPPORT_CLIENTS = [
+  { name: "Epic Roma", logo: logoEpicRoma },
+  { name: "Premium CityTour", logo: logoPremium },
+  { name: "SR City Tours", logo: logoSrCity },
+  { name: "Hello Italia Tour", logo: logoHelloItalia },
+];
+
+const REQUEST_TOPICS = [
+  "OTA platform management",
+  "Property management software",
+  "Channel manager audit",
+  "Specialist travel marketing",
+  "Custom software development",
+  "General question / other",
+];
 
 /* ---------------- Data ---------------- */
 
@@ -87,7 +119,7 @@ const SERVICES: Service[] = [
     id: "pms",
     icon: Building2,
     title: "Property Management Software",
-    tag: "Bókun · FareHarbor · Cloudbeds · Hostaway · Guesty · Lodgify",
+    tag: "Bókun · Cloudbeds · Hostaway · Guesty · Lodgify",
     summary:
       "Full operation of your PMS — from setup to daily reservations, rate plans, guest flows and integrations that keep your calendar in sync everywhere.",
     bullets: [
@@ -134,7 +166,25 @@ const SERVICES: Service[] = [
     price: "from €699 / month",
     priceNote: "scoped per channel",
   },
+  {
+    id: "software",
+    icon: Code2,
+    title: "Custom Software Development",
+    tag: "Internal tools built around your operation",
+    summary:
+      "When off-the-shelf platforms stop fitting your operation, we build the missing piece — dashboards, integrations and automations designed around how your company actually works.",
+    bullets: [
+      "Booking dashboards, manifests & dispatch tools",
+      "API integrations between OTAs, PMS and your website",
+      "Automated reporting & reconciliation",
+      "Website booking widgets & landing pages",
+      "Maintenance and support retainer",
+    ],
+    price: "quoted per scope",
+    priceNote: "fixed-price milestones · invoice billing",
+  },
 ];
+
 
 const WHY_US = [
   { icon: Users, title: "Real humans, not bots", body: "Every reply, mapping and review response is written by a trained travel operations specialist — not an AI script." },
@@ -207,7 +257,7 @@ const MODULES = [
 ];
 const STANDALONE = [
   { id: "seo", label: "Listing SEO optimization", price: 350, unit: "per listing" },
-  { id: "bokun", label: "Bókun / FareHarbor full setup", price: 650, unit: "flat setup" },
+  { id: "bokun", label: "Bókun full setup", price: 650, unit: "flat setup" },
   { id: "fast", label: "OTA fast approval setup", price: 250, unit: "per product upload" },
   { id: "rescue", label: "Previous listing audit & rescue", price: 450, unit: "flat" },
 ];
@@ -234,11 +284,11 @@ Replacing bots with human operations managers who monitor inbound queues continu
   {
     id: "art2",
     title: "Preventing double-bookings with capacity locks",
-    excerpt: "How to configure Bókun / FareHarbor resource pools so overbookings become mathematically impossible.",
+    excerpt: "How to configure Bókun resource pools so overbookings become mathematically impossible.",
     body: `Overbookings drain account health on distribution networks. Eliminating them requires an engineering approach to reservation setup.
 
 1. Resource Dependency Mapping
-Inside Bókun or FareHarbor, physical assets are absolute boundary conditions. Every product departure links to a shared resource pool with exact seat limits, guide roster shifts, and B2B ticket allotments.
+Inside Bókun, physical assets are absolute boundary conditions. Every product departure links to a shared resource pool with exact seat limits, guide roster shifts, and B2B ticket allotments.
 
 2. Live API Inventory Closures
 When a booking lands via GetYourGuide, the API instantly notifies the reservation engine, which reduces slots in the master pool and fires close-out commands across Viator, Tiqets and website widgets simultaneously.
@@ -277,6 +327,7 @@ function Home() {
       <Hero />
       <MetricsBoard />
       <BrandMatrix />
+      <PartnerLogos />
       <WhyUsMatrix />
       <Services />
       <ScopeMatrix />
@@ -284,6 +335,7 @@ function Home() {
       <Configurator />
       <ArticlesHub />
       <WhyUs />
+      <RequestService />
       <Partnership />
       <Booking />
       <Careers />
@@ -343,7 +395,7 @@ function Hero() {
             department.
           </h1>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Managing reservations, live OTA distribution channels, detailed customer communications, and central Bókun / FareHarbor systems while your team focuses on scaling experiences. Fully integrated into your existing infrastructure with zero high-cost software fees.
+            Managing reservations, live OTA distribution channels, detailed customer communications, and central Bókun systems while your team focuses on scaling experiences. Fully integrated into your existing infrastructure with zero high-cost software fees.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="#configurator" className="btn-teal rounded-md px-5 py-3 text-sm font-semibold inline-flex items-center gap-2">
