@@ -327,6 +327,7 @@ function Home() {
       <Hero />
       <MetricsBoard />
       <BrandMatrix />
+      <PartnerLogos />
       <WhyUsMatrix />
       <Services />
       <ScopeMatrix />
@@ -334,6 +335,7 @@ function Home() {
       <Configurator />
       <ArticlesHub />
       <WhyUs />
+      <RequestService />
       <Partnership />
       <Booking />
       <Careers />
