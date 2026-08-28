@@ -23,6 +23,9 @@ import {
   Calculator,
   TrendingUp,
   AlertTriangle,
+  Download,
+  Code2,
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -31,6 +34,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
+import { notifySubmission } from "@/lib/notify";
+import logoBestInRome from "@/assets/partners/Best_in_Rome_tour_transparent.png";
+import logoAvenza from "@/assets/partners/avenzatour_png_6.png";
+import logoEpicRoma from "@/assets/partners/Epic_ROma.jpg";
+import logoPremium from "@/assets/partners/Primium.jpg";
+import logoSrCity from "@/assets/partners/S_R_CITY.jpg";
+import logoHelloItalia from "@/assets/partners/web-logo-horizontal.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
