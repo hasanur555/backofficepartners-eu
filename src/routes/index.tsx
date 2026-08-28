@@ -61,6 +61,28 @@ export const Route = createFileRoute("/")({
 
 const CONTACT_EMAIL = "contact@backofficepartners.eu";
 const CAREERS_EMAIL = CONTACT_EMAIL;
+const SERVICE_PDF = "/travel-backoffice-partners-services.pdf";
+
+const TECH_PARTNERS = [
+  { name: "Best in Rome Tour", logo: logoBestInRome },
+  { name: "Avenza Tour", logo: logoAvenza },
+];
+
+const SUPPORT_CLIENTS = [
+  { name: "Epic Roma", logo: logoEpicRoma },
+  { name: "Premium CityTour", logo: logoPremium },
+  { name: "SR City Tours", logo: logoSrCity },
+  { name: "Hello Italia Tour", logo: logoHelloItalia },
+];
+
+const REQUEST_TOPICS = [
+  "OTA platform management",
+  "Property management software",
+  "Channel manager audit",
+  "Specialist travel marketing",
+  "Custom software development",
+  "General question / other",
+];
 
 /* ---------------- Data ---------------- */
 
