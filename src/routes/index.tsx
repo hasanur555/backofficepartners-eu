@@ -166,7 +166,25 @@ const SERVICES: Service[] = [
     price: "from €699 / month",
     priceNote: "scoped per channel",
   },
+  {
+    id: "software",
+    icon: Code2,
+    title: "Custom Software Development",
+    tag: "Internal tools built around your operation",
+    summary:
+      "When off-the-shelf platforms stop fitting your operation, we build the missing piece — dashboards, integrations and automations designed around how your company actually works.",
+    bullets: [
+      "Booking dashboards, manifests & dispatch tools",
+      "API integrations between OTAs, PMS and your website",
+      "Automated reporting & reconciliation",
+      "Website booking widgets & landing pages",
+      "Maintenance and support retainer",
+    ],
+    price: "quoted per scope",
+    priceNote: "fixed-price milestones · invoice billing",
+  },
 ];
+
 
 const WHY_US = [
   { icon: Users, title: "Real humans, not bots", body: "Every reply, mapping and review response is written by a trained travel operations specialist — not an AI script." },
